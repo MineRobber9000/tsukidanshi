@@ -23,7 +23,7 @@ This spec is also super in flux and nothing is necessarily set in stone quite ye
 |F400|FEFF|Reserved|
 |FF00|FFFF|Hardware Registers|
 
-Cartridges can be configured for banked execution or unbanked execution. If banked execution is desired, then each bank must fit in 16 KB or less when compiled to bytecode; however, cartridges are not limited in number of banks when done in this manner (with the tradeoff that banks cannot interact with each other outside of sharing variable space). If banked execution is not desired, then the space available to the first bank doubles, at the cost of the 32 KB limit being a hard limit.
+Eventually, the plan is for cartridges to be able be configured for banked execution or unbanked execution. If banked execution is desired, then each bank must fit in 16 KB or less when compiled to bytecode; however, cartridges are not limited in number of banks when done in this manner (with the tradeoff that banks cannot interact with each other outside of sharing variable space). If banked execution is not desired, then the space available to the first bank doubles, at the cost of the 32 KB limit being a hard limit. However, for the time being, only the unbanked execution mode is available.
 
 While code *can* read ROM, it's extremely discouraged to do so; Different Lua VMs can (and will) compile bytecode into different representations, so the contents of any one ROM location cannot be ensured. (Theoretically, one could examine the chunk header to determine what environment they're running on.)
 
