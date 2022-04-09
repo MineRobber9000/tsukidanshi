@@ -141,7 +141,7 @@ local function new()
             end
             error("Invalid variable "..k)
         end,
-        ["__newindex"]=function(t,k,v)
+        function(t,k,v)
             if type(v)=="function" then obj.sandbox_exclusive_vars[k]=v return end
             if obj.defs[k] then
                 obj.write(obj.defs[k][1],{v},obj.defs[k][2])
